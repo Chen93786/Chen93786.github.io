@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404 // Signal Lost — Cyber Ronin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://db.onlinewebfonts.com/c/b1314443e183d1cdd77049077c46facc?family=Orbitron-Medium" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" />
+<style>
+  :root{ --cream:#FBDBAF; --muted:rgba(251,219,175,0.72); }
+  *{box-sizing:border-box;}
+  html,body{height:100%;margin:0;}
+  body{
+    background:#C45A18;color:var(--cream);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    display:grid;place-items:center;text-align:center;padding:24px;
+    overflow:hidden;
+  }
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;
+    background:radial-gradient(circle at 50% 45%, rgba(0,0,0,0.25), transparent 65%);
+  }
+  .wrap{position:relative;z-index:1;max-width:520px;}
+  h1{
+    font-family:'Orbitron-Medium','Arial Narrow',sans-serif;
+    font-weight:400;letter-spacing:0.02em;
+    font-size:clamp(2rem,10vw,4rem);line-height:1.05;margin:0;
+    text-transform:uppercase;
+    text-shadow:0 2px 28px rgba(0,0,0,0.22);
+  }
+  p{margin:18px 0 0;font-size:13.5px;line-height:1.6;color:var(--muted);}
+  a{
+    display:inline-block;margin-top:26px;padding:9px 20px;
+    border:1px solid var(--cream);border-radius:999px;
+    color:var(--cream);text-decoration:none;font-size:12.5px;font-weight:500;
+    transition:transform 0.2s ease,background 0.2s ease;
+  }
+  a:hover{transform:translateY(-1px);background:rgba(251,219,175,0.1);}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>404 // Signal Lost</h1>
+    <p>The neural link you requested does not exist on this node. Re-route to the main interface.</p>
+    <a href="/">Return to Base</a>
+  </div>
+</body>
+</html>
