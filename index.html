@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="theme-color" content="#0B0705" />
-<meta name="description" content="About Walle — 6th grader, sports fan, chemistry lover, first-time web developer." />
-<title>About Me // Walle</title>
+<meta name="theme-color" content="#C45A18" />
+<meta name="description" content="Hello! I'm Walle — a student learning to build websites." />
+<title>Walle // Hello</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23C45A18'/><text x='16' y='23' font-family='Arial,sans-serif' font-size='17' font-weight='700' fill='%23FBDBAF' text-anchor='middle'>W</text></svg>" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,310 +16,158 @@
 <style>
 :root{
   --cream:#FBDBAF;
-  --muted:rgba(251,219,175,0.75);
+  --muted:rgba(251,219,175,0.72);
   --label:rgba(251,219,175,0.88);
   --value:#FFF6E8;
-  --rule:rgba(251,219,175,0.16);
-  --card:rgba(20,12,8,0.72);
-  --accent:#FF6B3D;
+  --rule:rgba(251,219,175,0.26);
+  --orange:#E07020;
+  --card:rgba(10,8,7,0.58);
 }
 *,*::before,*::after{box-sizing:border-box;}
-html,body{margin:0;padding:0;background:#0B0705;color:var(--cream);overflow-x:hidden;}
+html,body{margin:0;padding:0;background:#C45A18;color:var(--cream);overflow-x:hidden;}
 body{font-family:'Inter',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
 h1,h2,h3,.heading-font{font-family:'Orbitron-Medium','Arial Narrow',sans-serif;font-weight:400;letter-spacing:0.02em;}
 
-.about{
-  position:relative;
-  width:100%;
-  min-height:100vh;
-  min-height:100dvh;
-  overflow:hidden;
-  background:
-    radial-gradient(ellipse 70% 60% at 75% 15%, rgba(255,60,30,0.18), transparent 65%),
-    radial-gradient(ellipse 60% 55% at 15% 85%, rgba(255,90,40,0.10), transparent 70%),
-    linear-gradient(160deg, #140C08 0%, #0B0705 55%, #080504 100%);
-}
+.hero{position:relative;width:100%;height:100vh;height:100dvh;overflow:hidden;background:#C45A18;}
 
-.about-grid{
+.hero-base-img,
+.hero-reveal-img{
   position:absolute;
   inset:0;
-  z-index:1;
-  pointer-events:none;
-  background-image:
-    linear-gradient(rgba(251,219,175,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(251,219,175,0.05) 1px, transparent 1px);
-  background-size:64px 64px;
-  -webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 40%, #000 20%, transparent 80%);
-  mask-image:radial-gradient(ellipse 70% 70% at 50% 40%, #000 20%, transparent 80%);
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
 }
+.hero-base-img{z-index:1;}
+.hero-reveal-img{z-index:2;pointer-events:none;}
+.hero-image-animate{opacity:0;animation:heroImageIn 1.2s cubic-bezier(0.25,0.46,0.45,0.94) forwards;animation-delay:0.15s;}
 
-.about-ui{
-  position:relative;
+.hero-ember{
+  position:absolute;
+  inset:0;
   z-index:3;
-  min-height:100vh;
-  min-height:100dvh;
-  display:flex;
-  flex-direction:column;
-  padding:36px 44px 40px;
-  gap:36px;
+  pointer-events:none;
+  background:radial-gradient(ellipse 38% 42% at 54% 46%,
+    rgba(255,52,32,0.20) 0%,
+    rgba(255,58,34,0.10) 45%,
+    transparent 70%);
+  mix-blend-mode:screen;
 }
 
-/* ---------- 顶部 ---------- */
-.about-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:16px;
+.hero-figure{
+  position:absolute;
+  left:54%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  z-index:4;
+  width:clamp(230px,36vw,480px);
+  aspect-ratio:3 / 4;
+  background:url('assets/ironman.png') center center / contain no-repeat;
+  pointer-events:none;
+  filter:
+    drop-shadow(0 0 16px rgba(255,80,45,0.80))
+    drop-shadow(0 0 55px rgba(255,50,25,0.50))
+    drop-shadow(0 0 130px rgba(255,30,10,0.28));
+  animation:ironPulse 3.8s ease-in-out infinite;
 }
 
-.back-btn{
-  display:inline-flex;
+@keyframes ironPulse{
+  0%,100%{
+    filter:
+      drop-shadow(0 0 16px rgba(255,80,45,0.80))
+      drop-shadow(0 0 55px rgba(255,50,25,0.50))
+      drop-shadow(0 0 130px rgba(255,30,10,0.28));
+  }
+  50%{
+    filter:
+      drop-shadow(0 0 24px rgba(255,105,60,0.95))
+      drop-shadow(0 0 80px rgba(255,60,30,0.62))
+      drop-shadow(0 0 170px rgba(255,35,12,0.36));
+  }
+}
+
+/* ---------- About 入口（唯一新增元素） ---------- */
+.about-fab{
+  position:absolute;
+  right:44px;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:9;
+  display:flex;
   align-items:center;
-  gap:8px;
-  padding:9px 18px;
-  border-radius:999px;
-  border:1px solid rgba(251,219,175,0.45);
-  background:rgba(251,219,175,0.06);
-  -webkit-backdrop-filter:blur(10px);
-  backdrop-filter:blur(10px);
+  gap:9px;
+  padding:11px 16px;
+  border-radius:14px;
+  background:var(--card);
+  -webkit-backdrop-filter:blur(18px);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(251,219,175,0.3);
+  box-shadow:0 12px 34px rgba(0,0,0,0.24);
   color:var(--cream);
-  font-family:inherit;
-  font-size:12.5px;
-  font-weight:500;
   text-decoration:none;
-  cursor:pointer;
-  flex:0 0 auto;
-  transition:background 0.2s ease,border-color 0.2s ease,transform 0.2s ease;
-}
-.back-btn:hover{
-  background:rgba(251,219,175,0.14);
-  border-color:var(--cream);
-  transform:translateX(-2px);
-}
-.back-btn:focus-visible{outline:2px solid var(--cream);outline-offset:3px;}
-
-.about-top-right{
-  font-family:'Orbitron-Medium','Arial Narrow',sans-serif;
-  font-size:11.5px;
-  letter-spacing:0.16em;
-  text-transform:uppercase;
-  color:rgba(251,219,175,0.45);
-}
-
-/* ---------- 主内容 ---------- */
-.about-content{
-  flex:1;
-  display:grid;
-  grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr);
-  gap:56px;
-  align-items:start;
-}
-
-.about-left{max-width:640px;}
-
-.about-kicker{
-  display:inline-block;
-  margin-bottom:18px;
-  padding:5px 12px;
-  border-radius:999px;
-  border:1px solid rgba(251,219,175,0.28);
-  font-family:'Orbitron-Medium','Arial Narrow',sans-serif;
-  font-size:10px;
-  letter-spacing:0.2em;
-  text-transform:uppercase;
-  color:rgba(251,219,175,0.65);
-}
-
-.about-left h1{
-  margin:0;
-  font-size:clamp(2rem,4.6vw,4.2rem);
-  line-height:1.04;
-  text-transform:none;
-  color:var(--cream);
-  text-shadow:0 2px 40px rgba(255,90,45,0.22);
-}
-.about-left h1 .pull-line{display:block;}
-
-.about-left p{
-  margin:22px 0 0;
-  max-width:540px;
-  font-size:15.5px;
-  line-height:1.75;
-  color:var(--muted);
-}
-
-.about-left p strong{
-  color:var(--cream);
-  font-weight:500;
-}
-
-/* 小标题 */
-.about-subhead{
-  margin:36px 0 0;
-  font-family:'Orbitron-Medium','Arial Narrow',sans-serif;
-  font-size:11px;
-  font-weight:500;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:rgba(251,219,175,0.6);
-}
-
-/* 三段兴趣列表 */
-.likes{
-  display:flex;
-  flex-direction:column;
-  gap:0;
-  margin-top:14px;
-  max-width:560px;
-}
-
-.like-item{
-  display:flex;
-  gap:16px;
-  padding:16px 0;
-  border-top:1px solid var(--rule);
-}
-.like-item:first-child{border-top:none;padding-top:0;}
-
-.like-icon{
-  flex:0 0 36px;
-  width:36px;height:36px;
-  display:grid;place-items:center;
-  border-radius:10px;
-  border:1px solid rgba(251,219,175,0.24);
-  color:var(--cream);
-}
-.like-icon svg{width:16px;height:16px;display:block;}
-
-.like-body{min-width:0;}
-
-.like-title{
-  margin:0;
   font-family:'Orbitron-Medium','Arial Narrow',sans-serif;
   font-size:12px;
-  letter-spacing:0.04em;
-  color:var(--value);
-}
-
-.like-text{
-  margin:5px 0 0;
-  font-size:13.5px;
-  line-height:1.6;
-  color:var(--muted);
-}
-
-/* 标签 */
-.about-tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:30px;
-}
-.about-tags span{
-  display:inline-block;
-  padding:6px 13px;
-  border-radius:999px;
-  border:1px solid rgba(251,219,175,0.28);
-  background:rgba(251,219,175,0.05);
-  font-size:11.5px;
   letter-spacing:0.06em;
-  color:var(--label);
+  transition:transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
 }
+.about-fab:hover{
+  transform:translateY(-50%) translateX(-4px);
+  border-color:var(--cream);
+  background:rgba(20,14,10,0.75);
+}
+.about-fab:focus-visible{outline:2px solid var(--cream);outline-offset:3px;}
+.about-fab-icon{width:14px;height:14px;display:block;flex:0 0 14px;}
 
-/* ---------- 右侧 ---------- */
-.about-side{
-  width:100%;
-  max-width:400px;
+.hero-ui{position:absolute;inset:0;z-index:8;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr auto;padding:36px 44px 40px;pointer-events:none;}
+
+.hero-left{grid-column:1;grid-row:1 / -1;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;gap:28px;min-width:0;}
+.hero-copy{max-width:620px;padding-right:56px;pointer-events:auto;}
+.hero-copy h1{margin:0;font-size:clamp(1.9rem,4.4vw,3.9rem);line-height:1.05;text-transform:none;color:var(--cream);text-shadow:0 2px 28px rgba(0,0,0,0.22);}
+.hero-copy h1 .pull-line{display:block;}
+.hero-copy p{margin:20px 0 0;max-width:400px;font-size:15.5px;font-weight:400;line-height:1.6;color:var(--muted);}
+
+.icon-row{display:flex;gap:10px;margin-top:22px;}
+.icon-btn{width:38px;height:38px;border-radius:50%;border:1px solid rgba(251,219,175,0.55);background:transparent;color:var(--cream);display:grid;place-items:center;padding:0;cursor:pointer;text-decoration:none;transition:background 0.25s ease,border-color 0.25s ease;}
+.icon-btn:hover{background:rgba(251,219,175,0.1);border-color:var(--cream);}
+.icon-btn svg{width:16px;height:16px;display:block;}
+.icon-btn:focus-visible,.cart-btn:focus-visible{outline:2px solid var(--cream);outline-offset:3px;}
+
+.product-card{pointer-events:auto;width:min(320px,100%);display:grid;grid-template-columns:86px 1fr;grid-template-rows:auto auto;gap:10px 14px;padding:12px;border-radius:18px;background:var(--card);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border:1px solid rgba(251,219,175,0.08);box-shadow:0 18px 50px rgba(0,0,0,0.28);}
+.product-thumb{grid-column:1;grid-row:1 / -1;width:86px;min-height:86px;border-radius:12px;overflow:hidden;background-size:cover;background-position:center center;background-repeat:no-repeat;}
+.product-body{grid-column:2;grid-row:1;min-width:0;}
+.product-body h2{margin:0;font-size:11px;line-height:1.25;text-transform:uppercase;color:var(--cream);}
+.product-body p{margin:6px 0 0;font-size:11.5px;line-height:1.45;color:var(--muted);}
+.cart-btn{grid-column:2;grid-row:2;justify-self:start;align-self:end;border:1px solid var(--cream);border-radius:999px;padding:7px 16px;font-family:inherit;font-size:12px;font-weight:500;color:var(--cream);background:transparent;cursor:pointer;text-decoration:none;transition:border-color 0.2s ease,color 0.2s ease,transform 0.2s ease;}
+.cart-btn:hover{transform:translateY(-1px);}
+
+.hero-page{
+  grid-column:2;
+  grid-row:3;
   justify-self:end;
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-}
-
-.about-card-big{
-  padding:22px 22px 10px;
-  border-radius:20px;
-  background:var(--card);
-  -webkit-backdrop-filter:blur(20px);
-  backdrop-filter:blur(20px);
-  border:1px solid rgba(251,219,175,0.18);
-  box-shadow:0 24px 70px rgba(0,0,0,0.55), 0 0 60px rgba(255,70,35,0.06);
-}
-
-.about-card-big h2{
-  margin:0 0 16px;
-  font-size:11px;
-  font-weight:500;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:var(--value);
-}
-
-.about-list{margin:0;padding:0;}
-
-.about-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:baseline;
-  gap:16px;
-  padding:11px 0;
-  border-top:1px solid var(--rule);
-}
-.about-row:first-child{border-top:none;}
-
-.about-row dt{
-  margin:0;
-  font-size:11px;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  color:var(--label);
-  font-weight:500;
-}
-
-.about-row dd{
-  margin:0;
-  font-size:13px;
-  font-weight:500;
-  color:var(--value);
-  text-align:right;
-  white-space:nowrap;
-}
-
-/* 目标小卡 */
-.about-goal{
-  padding:20px 22px;
-  border-radius:18px;
-  background:linear-gradient(150deg, rgba(255,70,35,0.14), rgba(20,12,8,0.6));
-  border:1px solid rgba(255,110,70,0.28);
-}
-.about-goal h2{
-  margin:0 0 10px;
-  font-size:10px;
-  font-weight:500;
-  letter-spacing:0.2em;
-  text-transform:uppercase;
-  color:var(--accent);
-}
-.about-goal p{
-  margin:0;
-  font-size:13px;
-  line-height:1.65;
-  color:var(--muted);
-}
-
-/* ---------- 底部 ---------- */
-.about-bottom{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:16px;
+  align-self:end;
   font-family:'Orbitron-Medium','Arial Narrow',sans-serif;
-  font-size:14px;
+  font-size:18px;
+  font-weight:500;
   letter-spacing:0.1em;
-  color:rgba(251,219,175,0.5);
+  color:rgba(251,219,175,0.9);
+  text-shadow:0 1px 14px rgba(0,0,0,0.28);
 }
 
-/* ---------- 动画 ---------- */
+.specs{
+  grid-column:2;
+  grid-row:1;
+  justify-self:end;
+  align-self:start;
+  pointer-events:auto;
+  width:min(280px,100%);
+}
+.specs h3{margin:0 0 14px;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.12em;color:var(--value);text-shadow:0 1px 12px rgba(0,0,0,0.25);}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:7px 0;}
+.spec-row + .spec-row{border-top:1px solid var(--rule);}
+.spec-label{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--label);}
+.spec-value{font-size:12.5px;font-weight:500;color:var(--value);text-align:right;white-space:nowrap;text-shadow:0 1px 12px rgba(0,0,0,0.25);}
+
+@keyframes heroImageIn{from{opacity:0;transform:scale(1.18);}to{opacity:1;transform:scale(1);}}
 @keyframes wordPullUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px);filter:blur(8px);}to{opacity:1;transform:translateY(0);filter:blur(0);}}
 
@@ -331,173 +179,226 @@ h1,h2,h3,.heading-font{font-family:'Orbitron-Medium','Arial Narrow',sans-serif;f
 .fade-up-reveal.is-visible{animation:fadeUp 0.7s ease forwards;}
 
 @media (prefers-reduced-motion: reduce){
-  .pull-word,.fade-up-reveal{animation:none !important;opacity:1 !important;transform:none !important;filter:none !important;}
+  .hero-image-animate,.pull-word,.fade-up-reveal,.hero-figure{
+    animation:none !important;
+    opacity:1 !important;
+    transform:translate(-50%,-50%) !important;
+    filter:drop-shadow(0 0 55px rgba(255,50,25,0.55)) !important;
+  }
+  .hero-base-img{transform:none !important;}
 }
 
-/* ---------- 响应式 ---------- */
 @media (max-width:1024px){
-  .about-ui{padding:32px 28px 36px;gap:30px;}
-  .about-content{gap:40px;}
+  .hero-ui{padding:32px 28px 36px;}
+  .specs{width:min(250px,100%);}
+  .about-fab{right:28px;}
 }
 @media (max-width:900px){
-  .about-ui{padding:28px 22px 30px;gap:26px;}
-  .about-content{grid-template-columns:1fr;gap:34px;}
-  .about-left h1{font-size:clamp(1.8rem,8vw,3rem);}
-  .about-left p{font-size:14.5px;}
-  .about-side{max-width:100%;justify-self:stretch;}
-  .about-bottom{font-size:13px;}
+  .hero-ui{padding:28px 22px 28px;}
+  .hero-copy h1{font-size:clamp(1.7rem,8.2vw,3rem);}
+  .hero-copy p{font-size:14.5px;}
+  .hero-base-img,.hero-reveal-img{background-position:40% center;}
+  .specs{width:min(240px,100%);}
+  .hero-page{font-size:17px;}
+  .hero-figure{width:clamp(200px,40vw,340px);left:58%;}
+  .about-fab{right:22px;}
+}
+@media (max-width:768px){
+  .hero-ui{
+    grid-template-columns:1fr;
+    grid-template-rows:auto 1fr auto;
+    padding:max(24px,env(safe-area-inset-top))
+            max(20px,env(safe-area-inset-right))
+            max(28px,env(safe-area-inset-bottom))
+            max(20px,env(safe-area-inset-left));
+  }
+  .hero-left{grid-column:1;grid-row:1 / 3;gap:24px;}
+  .specs{
+    grid-column:1;
+    grid-row:3;
+    justify-self:stretch;
+    align-self:end;
+    width:100%;
+    margin-top:8px;
+  }
+  .hero-page{
+    position:absolute;
+    top:max(24px,env(safe-area-inset-top));
+    right:max(20px,env(safe-area-inset-right));
+    grid-column:auto;
+    grid-row:auto;
+    justify-self:auto;
+    align-self:auto;
+  }
+  .hero-base-img,.hero-reveal-img{background-position:40% center;}
+  .hero-figure{width:clamp(180px,46vw,300px);left:62%;top:46%;}
+  .about-fab{
+    position:absolute;
+    top:max(60px, calc(env(safe-area-inset-top) + 36px));
+    right:max(20px, env(safe-area-inset-right));
+    transform:none;
+  }
+  .about-fab:hover{transform:translateY(-2px);}
 }
 @media (max-width:720px){
-  .about-ui{
+  .hero{height:auto;min-height:100vh;min-height:100dvh;}
+  .hero-ui{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    min-height:100dvh;
+    justify-content:flex-start;
+    gap:28px;
     padding:max(22px,env(safe-area-inset-top))
             max(18px,env(safe-area-inset-right))
             max(24px,env(safe-area-inset-bottom))
             max(18px,env(safe-area-inset-left));
-    gap:22px;
   }
-  .about-content{gap:26px;}
-  .about-left p{font-size:14px;margin-top:18px;}
-  .about-card-big{padding:18px 18px 8px;border-radius:18px;}
-  .about-row{padding:10px 0;}
+  .hero-left{grid-column:auto;grid-row:auto;width:100%;justify-content:flex-start;}
+  .hero-copy{max-width:100%;padding-right:40px;}
+  .hero-copy p{font-size:14px;max-width:100%;}
+  .product-card{width:100%;}
+  .specs{width:100%;margin-top:auto;padding-top:4px;}
+  .spec-value{white-space:normal;}
+  .hero-page{
+    position:absolute;
+    top:max(22px,env(safe-area-inset-top));
+    right:max(18px,env(safe-area-inset-right));
+    font-size:16px;
+  }
+  .hero-base-img,.hero-reveal-img{position:absolute;background-position:40% center;}
+  .hero-figure{width:clamp(150px,40vw,240px);left:66%;top:40%;}
+  .about-fab{
+    top:max(56px, calc(env(safe-area-inset-top) + 32px));
+    right:max(18px, env(safe-area-inset-right));
+  }
 }
 @media (max-width:480px){
-  .about-ui{gap:20px;}
-  .about-top-right{display:none;}
-  .about-left h1{font-size:clamp(1.5rem,10vw,2.2rem);}
-  .about-left p{font-size:13.5px;margin-top:16px;}
-  .about-tags{margin-top:22px;gap:6px;}
-  .about-tags span{font-size:10.5px;padding:5px 10px;}
-  .about-row dt{font-size:10.5px;}
-  .about-row dd{font-size:12px;}
-  .about-bottom{font-size:12px;}
-  .back-btn{font-size:11.5px;padding:8px 14px;}
-  .like-item{gap:12px;padding:14px 0;}
-  .like-icon{flex:0 0 32px;width:32px;height:32px;}
-  .like-title{font-size:11px;}
-  .like-text{font-size:12.5px;}
+  .hero-ui{gap:22px;padding:max(18px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(20px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));}
+  .hero-page{font-size:15px;letter-spacing:0.08em;}
+  .hero-copy h1{font-size:clamp(1.35rem,9.4vw,2rem);}
+  .hero-copy p{font-size:13.5px;margin-top:16px;}
+  .icon-row{margin-top:16px;gap:8px;}
+  .icon-btn{width:34px;height:34px;}
+  .hero-left{gap:22px;}
+  .product-card{grid-template-columns:72px 1fr;gap:8px 12px;padding:10px;border-radius:14px;}
+  .product-thumb{width:72px;min-height:72px;border-radius:10px;}
+  .product-body h2{font-size:10px;}
+  .product-body p{font-size:11px;}
+  .cart-btn{padding:6px 14px;font-size:11px;}
+  .specs h3{font-size:10px;margin-bottom:10px;}
+  .spec-row{padding:6px 0;gap:10px;}
+  .spec-label,.spec-value{font-size:11px;}
+  .hero-figure{width:clamp(130px,34vw,190px);left:70%;top:34%;}
+  .about-fab{font-size:11px;padding:9px 13px;gap:7px;border-radius:12px;}
+  .about-fab-icon{width:13px;height:13px;flex:0 0 13px;}
+}
+@media (max-width:360px){
+  .hero-copy h1{font-size:1.2rem;}
+  .hero-copy p{font-size:13px;}
+  .product-card{grid-template-columns:64px 1fr;}
+  .product-thumb{width:64px;min-height:64px;}
 }
 </style>
 </head>
 
 <body>
-<main class="about">
+<main class="hero">
 
-  <div class="about-grid" aria-hidden="true"></div>
+  <div class="hero-base-img hero-image-animate"
+       style="background-image:url('https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260831_115955_2a9adb39-5e9b-4ced-96e2-6900eabe3de9.png&w=1920&q=85');"></div>
 
-  <div class="about-ui">
+  <div class="hero-reveal-img" id="reveal-img"
+       style="background-image:url('https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260831_123709_183f0065-efb2-4bb2-a849-13aaa5af2f3f.png&w=1920&q=85');
+              -webkit-mask-image:radial-gradient(circle 0px at -999px -999px, #fff, transparent);
+              mask-image:radial-gradient(circle 0px at -999px -999px, #fff, transparent);"></div>
 
-    <header class="about-top">
-      <a href="index.html" class="back-btn">← Back</a>
-      <span class="about-top-right">WALLE // v1.0</span>
-    </header>
+  <div class="hero-ember" aria-hidden="true"></div>
+  <div class="hero-figure" aria-hidden="true"></div>
 
-    <section class="about-content">
+  <!-- 唯一新增：About 入口，点击才跳转 -->
+  <a href="about.html" class="about-fab" aria-label="Open About Me">
+    <svg class="about-fab-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+      <rect x="1.6" y="1.6" width="5.2" height="5.2" rx="1"/>
+      <rect x="9.2" y="1.6" width="5.2" height="5.2" rx="1"/>
+      <rect x="1.6" y="9.2" width="5.2" height="5.2" rx="1"/>
+      <rect x="9.2" y="9.2" width="5.2" height="5.2" rx="1"/>
+    </svg>
+    <span>About Me</span>
+  </a>
 
-      <!-- 左：介绍 -->
-      <div class="about-left">
-        <span class="about-kicker fade-up-reveal" data-delay="0.1">About Me</span>
+  <div class="hero-ui">
 
-        <h1 class="words-pull-up"><span>I'm</span><span>Walle.</span></h1>
+    <div class="hero-left">
 
-        <p class="fade-up-reveal" data-delay="0.4">
-          I'm <strong>12 years old</strong> and in <strong>6th grade</strong>. I'm a student who likes moving around more than sitting still — sports, video games, and anything hands-on. My favorite subject is <strong>Chemistry</strong>, because I like finding out how things actually work.
-        </p>
+      <div class="hero-copy">
+        <h1 class="words-pull-up"><span>Hello!</span><span>I'm Walle.</span></h1>
 
-        <p class="fade-up-reveal" data-delay="0.55">
-          I really don't like reading books, and English class isn't my thing either. I'd rather be outside, or in front of a screen playing something with friends. But I do like making things, which is how I ended up here.
-        </p>
+        <p class="fade-up-reveal" data-delay="0.5">I'm a student. I like to play sports and video games, I really don't like reading books. My favorite subject is Chemistry, and I don't really like English. I start to learn making website, this is my fist try.</p>
 
-        <h2 class="about-subhead fade-up-reveal" data-delay="0.65">Things I Like</h2>
+        <div class="icon-row fade-up-reveal" data-delay="0.65">
+          <a class="icon-btn" href="mailto:hello@walle.dev" aria-label="Email me">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+              <path d="M8 1.4L13.8 4.7V11.3L8 14.6L2.2 11.3V4.7L8 1.4Z"/>
+              <circle cx="8" cy="8" r="1.35" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
 
-        <div class="likes">
-          <div class="like-item fade-up-reveal" data-delay="0.75">
-            <span class="like-icon" aria-hidden="true">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2">
-                <circle cx="8" cy="8" r="6"/>
-                <path d="M8 1.4v13.2M1.4 8h13.2"/>
-              </svg>
-            </span>
-            <div class="like-body">
-              <h3 class="like-title">Sports</h3>
-              <p class="like-text">I like playing sports — running around, competing, and getting better at something. It's way more fun than sitting in class.</p>
-            </div>
-          </div>
+          <a class="icon-btn" href="https://github.com/Chen93786" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true">
+              <path d="M2 5.2V2h3.2"/>
+              <path d="M14 5.2V2h-3.2"/>
+              <path d="M2 10.8V14h3.2"/>
+              <path d="M14 10.8V14h-3.2"/>
+              <rect x="5.2" y="5.2" width="5.6" height="5.6"/>
+            </svg>
+          </a>
 
-          <div class="like-item fade-up-reveal" data-delay="0.85">
-            <span class="like-icon" aria-hidden="true">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round">
-                <rect x="1.6" y="5.2" width="12.8" height="7.2" rx="2.4"/>
-                <path d="M5 3.2h6"/>
-                <circle cx="5.2" cy="8.8" r="1"/>
-                <circle cx="9" cy="9.8" r="1"/>
-              </svg>
-            </span>
-            <div class="like-body">
-              <h3 class="like-title">Video Games</h3>
-              <p class="like-text">That's how I relax. I like games that need thinking and quick reactions — and playing with friends is the best part.</p>
-            </div>
-          </div>
-
-          <div class="like-item fade-up-reveal" data-delay="0.95">
-            <span class="like-icon" aria-hidden="true">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-                <path d="M6.4 1.8h3.2"/>
-                <path d="M8 1.8v3.4"/>
-                <path d="M8 5.2L4.2 11.4a2.4 2.4 0 0 0 2 3.6h3.6a2.4 2.4 0 0 0 2-3.6L8 5.2Z"/>
-                <path d="M6 9.6h4"/>
-              </svg>
-            </span>
-            <div class="like-body">
-              <h3 class="like-title">Chemistry</h3>
-              <p class="like-text">My favorite subject. Reactions, elements, experiments — I like that there's always a real answer to find.</p>
-            </div>
-          </div>
-        </div>
-
-        <h2 class="about-subhead fade-up-reveal" data-delay="1.0">This Website</h2>
-
-        <p class="fade-up-reveal" data-delay="1.1">
-          I'm just starting to learn how to make websites, and this is my <strong>first try</strong>. I built this page myself with HTML and CSS — no templates. There's still a lot I don't know, but I'm having fun figuring it out one piece at a time.
-        </p>
-
-        <div class="about-tags fade-up-reveal" data-delay="1.2">
-          <span>#sports</span>
-          <span>#videogames</span>
-          <span>#chemistry</span>
-          <span>#webdev</span>
+          <a class="icon-btn" href="#profile" aria-label="Jump to profile">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9.2 1.6L4 9.1h3.5L6.8 14.4 12 6.9H8.5L9.2 1.6Z"/>
+            </svg>
+          </a>
         </div>
       </div>
 
-      <!-- 右：速览 + 目标 -->
-      <aside class="about-side">
+      <article class="product-card">
+        <div class="product-thumb" aria-hidden="true"
+             style="background-image:url('https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260831_121937_3f02b5a0-5b86-43d9-b30e-03c5e46632e7.png&w=1920&q=85');"></div>
 
-        <div class="about-card-big fade-up-reveal" data-delay="0.5">
-          <h2>Quick Facts</h2>
-          <dl class="about-list">
-            <div class="about-row"><dt>Name</dt><dd>Walle</dd></div>
-            <div class="about-row"><dt>Age</dt><dd>12</dd></div>
-            <div class="about-row"><dt>Grade</dt><dd>6th</dd></div>
-            <div class="about-row"><dt>Favorite</dt><dd>Sport</dd></div>
-            <div class="about-row"><dt>Hate</dt><dd>Reading</dd></div>
-            <div class="about-row"><dt>Relax by</dt><dd>Playing Games</dd></div>
-            <div class="about-row"><dt>Subject Like</dt><dd>Chemistry</dd></div>
-            <div class="about-row"><dt>Website</dt><dd>First try</dd></div>
-          </dl>
+        <div class="product-body">
+          <h2 class="words-pull-up">WS-01: THIS SITE</h2>
+          <p class="fade-up-reveal" data-delay="1.05">My first website. I made it by myself with HTML and CSS.</p>
         </div>
 
-        <div class="about-goal fade-up-reveal" data-delay="0.85">
-          <h2>Next Goal</h2>
-          <p>Learn JavaScript, add a second page, and make the whole site work on my phone without anything breaking.</p>
-        </div>
+        <a class="cart-btn fade-up-reveal" data-delay="1.15" href="https://github.com/Chen93786" target="_blank" rel="noopener noreferrer">View Source</a>
+      </article>
 
-      </aside>
+    </div>
 
-    </section>
+    <div class="hero-page fade-up-reveal" data-delay="0.75">EST. 2026</div>
 
-    <footer class="about-bottom">
-      <span>EST. 2026</span>
-      <span>WALLE // v1.0</span>
-    </footer>
+    <div class="specs" id="profile">
+      <h3 class="words-pull-up">Profile</h3>
+
+      <div class="spec-row fade-up-reveal" data-delay="1.2">
+        <span class="spec-label">Favorite</span>
+        <span class="spec-value">Sport</span>
+      </div>
+      <div class="spec-row fade-up-reveal" data-delay="1.3">
+        <span class="spec-label">Hate</span>
+        <span class="spec-value">Reading</span>
+      </div>
+      <div class="spec-row fade-up-reveal" data-delay="1.4">
+        <span class="spec-label">Relax by</span>
+        <span class="spec-value">Playing Games</span>
+      </div>
+      <div class="spec-row fade-up-reveal" data-delay="1.5">
+        <span class="spec-label">Subject Like</span>
+        <span class="spec-value">Chemistry</span>
+      </div>
+    </div>
 
   </div>
 </main>
@@ -505,6 +406,26 @@ h1,h2,h3,.heading-font{font-family:'Orbitron-Medium','Arial Narrow',sans-serif;f
 <script>
 (function () {
   'use strict';
+
+  var revealImg = document.getElementById('reveal-img');
+  function spotlightRadius(){
+    var w = window.innerWidth;
+    if (w < 480) return 180;
+    if (w < 720) return 240;
+    return 380;
+  }
+  function applyMask(clientX,clientY){
+    if(!revealImg)return;
+    var rect=revealImg.getBoundingClientRect();
+    var x=clientX-rect.left,y=clientY-rect.top,r=spotlightRadius();
+    var g='radial-gradient(circle '+r+'px at '+x.toFixed(1)+'px '+y.toFixed(1)+'px, ' +
+      '#fff 0%, #fff 55%, rgba(255,255,255,0.92) 68%, rgba(255,255,255,0.7) 80%, ' +
+      'rgba(255,255,255,0.35) 91%, rgba(255,255,255,0.12) 97%, transparent 100%)';
+    revealImg.style.webkitMaskImage=g;
+    revealImg.style.maskImage=g;
+  }
+  window.addEventListener('mousemove',function(e){applyMask(e.clientX,e.clientY);},{passive:true});
+  window.addEventListener('touchmove',function(e){var t=e.touches&&e.touches[0];if(t)applyMask(t.clientX,t.clientY);},{passive:true});
 
   function escapeHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
   function buildWords(text,startIndex){
