@@ -301,10 +301,279 @@ h1,h2,h3,.heading-font{font-family:'Orbitron-Medium','Arial Narrow',sans-serif;f
   .product-thumb{width:64px;min-height:64px;}
 }
 </style>
+
+<!-- ==================== About 页面样式（只作用于 About 视图） ==================== -->
+<style>
+[hidden]{display:none !important;}
+
+.about-view{
+  position:relative;
+  min-height:100vh;
+  min-height:100dvh;
+  background:
+    radial-gradient(ellipse 60% 50% at 82% -6%, rgba(255,92,42,0.30) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 45% at -5% 105%, rgba(110,26,0,0.30) 0%, transparent 70%),
+    #C45A18;
+}
+
+.about-page{
+  max-width:1060px;
+  margin:0 auto;
+  padding:0 clamp(20px,4vw,44px) clamp(56px,7vw,80px);
+}
+
+/* 顶栏 */
+.about-topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:clamp(20px,3vw,30px) 0 0;
+}
+.back-link{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:10px 16px;
+  border-radius:14px;
+  background:var(--card);
+  -webkit-backdrop-filter:blur(18px);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(251,219,175,0.3);
+  box-shadow:0 12px 34px rgba(0,0,0,0.24);
+  color:var(--cream);
+  text-decoration:none;
+  font-family:'Orbitron-Medium','Arial Narrow',sans-serif;
+  font-size:12px;
+  letter-spacing:0.06em;
+  transition:transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+}
+.back-link:hover{
+  transform:translateX(-4px);
+  border-color:var(--cream);
+  background:rgba(20,14,10,0.75);
+}
+.back-link:focus-visible{outline:2px solid var(--cream);outline-offset:3px;}
+.back-link svg{width:13px;height:13px;display:block;}
+
+.about-tag{
+  font-family:'Orbitron-Medium','Arial Narrow',sans-serif;
+  font-size:11px;
+  letter-spacing:0.16em;
+  color:rgba(251,219,175,0.68);
+  white-space:nowrap;
+}
+
+/* 头部 */
+.about-intro{padding:clamp(44px,8vw,88px) 0 0;}
+.about-eyebrow{
+  margin:0 0 18px;
+  font-family:'Orbitron-Medium','Arial Narrow',sans-serif;
+  font-size:11px;
+  letter-spacing:0.24em;
+  text-transform:uppercase;
+  color:rgba(251,219,175,0.72);
+}
+.about-intro h1{
+  margin:0;
+  font-size:clamp(2.1rem,6.6vw,4.4rem);
+  line-height:1.04;
+  color:var(--cream);
+  text-shadow:0 2px 28px rgba(0,0,0,0.22);
+}
+.about-intro h1 .accent{color:var(--value);}
+.about-lede{
+  margin:22px 0 0;
+  max-width:600px;
+  font-size:clamp(15px,2.1vw,17.5px);
+  line-height:1.68;
+  color:rgba(251,219,175,0.74);
+}
+.about-meta{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:12px;
+  margin-top:26px;
+  font-family:'Orbitron-Medium','Arial Narrow',sans-serif;
+  font-size:11px;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:rgba(251,219,175,0.62);
+}
+.about-meta .dot{opacity:0.5;}
+
+/* 区块 */
+.about-section{margin-top:clamp(46px,6vw,68px);}
+.about-section-label{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin:0 0 20px;
+  font-family:'Orbitron-Medium','Arial Narrow',sans-serif;
+  font-size:11px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:rgba(251,219,175,0.76);
+  white-space:nowrap;
+}
+.about-section-label::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:var(--rule);
+}
+
+/* 卡片 */
+.about-card{
+  background:var(--card);
+  -webkit-backdrop-filter:blur(18px);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(251,219,175,0.14);
+  border-radius:20px;
+  padding:clamp(20px,3vw,28px);
+  box-shadow:0 18px 50px rgba(0,0,0,0.22);
+}
+.about-card h3{
+  margin:0 0 10px;
+  font-size:13px;
+  letter-spacing:0.09em;
+  text-transform:uppercase;
+  color:var(--value);
+}
+.about-card p{
+  margin:0;
+  font-size:14px;
+  line-height:1.72;
+  color:rgba(251,219,175,0.78);
+}
+.about-card p + p{margin-top:13px;}
+.about-card p strong{color:var(--value);font-weight:500;}
+
+.about-grid-2{display:grid;grid-template-columns:1.3fr 1fr;gap:18px;}
+.about-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+
+/* 速览 */
+.fact-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:16px;
+  padding:11px 0;
+  border-top:1px solid var(--rule);
+}
+.fact-row:first-of-type{border-top:0;padding-top:0;}
+.fact-row:last-of-type{padding-bottom:0;}
+.fact-label{
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--label);
+}
+.fact-value{
+  font-size:13px;
+  font-weight:500;
+  color:var(--value);
+  text-align:right;
+}
+
+/* 兴趣卡片 */
+.interest-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:20px;
+}
+.interest-num{
+  font-family:'Orbitron-Medium','Arial Narrow',sans-serif;
+  font-size:11px;
+  letter-spacing:0.14em;
+  color:rgba(251,219,175,0.5);
+}
+.interest-icon{
+  width:36px;
+  height:36px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  border:1px solid rgba(251,219,175,0.35);
+  color:var(--cream);
+  flex:0 0 36px;
+}
+.interest-icon svg{width:17px;height:17px;display:block;}
+
+/* 标签 */
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.tag-pill{
+  padding:7px 14px;
+  border-radius:999px;
+  border:1px solid rgba(251,219,175,0.38);
+  font-size:11.5px;
+  letter-spacing:0.05em;
+  color:var(--cream);
+}
+
+/* 页脚 */
+.about-footer{
+  margin-top:clamp(56px,7vw,76px);
+  padding-top:28px;
+  border-top:1px solid var(--rule);
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+.about-footer-text{
+  margin:0;
+  font-size:13.5px;
+  color:rgba(251,219,175,0.68);
+}
+.about-footer-links{display:flex;align-items:center;gap:10px;}
+
+/* About 入场动画 */
+.about-view .fade-up{
+  opacity:0;
+  transform:translateY(16px);
+  filter:blur(6px);
+  transition:opacity 0.7s ease, transform 0.7s ease, filter 0.7s ease;
+  transition-delay:var(--d,0s);
+}
+.about-view .fade-up.is-visible{
+  opacity:1;
+  transform:none;
+  filter:blur(0);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .about-view .fade-up{opacity:1;transform:none;filter:none;transition:none;}
+}
+
+/* About 响应式 */
+@media (max-width:860px){
+  .about-grid-2{grid-template-columns:1fr;}
+  .about-grid-3{grid-template-columns:1fr 1fr;}
+  .about-grid-3 .about-card:last-child{grid-column:1 / -1;}
+}
+@media (max-width:620px){
+  .about-grid-3{grid-template-columns:1fr;}
+  .about-grid-3 .about-card:last-child{grid-column:auto;}
+  .about-tag{display:none;}
+  .about-intro h1{font-size:clamp(1.85rem,8.4vw,2.6rem);}
+  .about-lede{font-size:14.5px;}
+  .about-card p{font-size:13.5px;}
+  .fact-value{white-space:normal;}
+  .about-footer{flex-direction:column;align-items:flex-start;}
+}
+</style>
 </head>
 
 <body>
-<main class="hero">
+
+<!-- ==================== 主页面（原样保留） ==================== -->
+<main class="hero" id="homeView">
 
   <div class="hero-base-img hero-image-animate"
        style="background-image:url('https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260831_115955_2a9adb39-5e9b-4ced-96e2-6900eabe3de9.png&w=1920&q=85');"></div>
@@ -317,8 +586,8 @@ h1,h2,h3,.heading-font{font-family:'Orbitron-Medium','Arial Narrow',sans-serif;f
   <div class="hero-ember" aria-hidden="true"></div>
   <div class="hero-figure" aria-hidden="true"></div>
 
-  <!-- 唯一新增：About 入口，点击才跳转 -->
-  <a href="about.html" class="about-fab" aria-label="Open About Me">
+  <!-- About 入口 -->
+  <a href="#about" class="about-fab" aria-label="Open About Me">
     <svg class="about-fab-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
       <rect x="1.6" y="1.6" width="5.2" height="5.2" rx="1"/>
       <rect x="9.2" y="1.6" width="5.2" height="5.2" rx="1"/>
@@ -403,6 +672,232 @@ h1,h2,h3,.heading-font{font-family:'Orbitron-Medium','Arial Narrow',sans-serif;f
   </div>
 </main>
 
+
+<!-- ==================== About 页面（默认隐藏） ==================== -->
+<div class="about-view" id="aboutView" hidden>
+  <div class="about-page">
+
+    <nav class="about-topbar fade-up">
+      <a class="back-link" href="#home" data-back-home aria-label="Back to home">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9.8 3.2L5 8l4.8 4.8"/>
+        </svg>
+        <span>Back</span>
+      </a>
+      <span class="about-tag">WALLE // ABOUT</span>
+    </nav>
+
+    <header class="about-intro">
+      <p class="about-eyebrow fade-up">About Me</p>
+      <h1 class="fade-up" style="--d:.08s">Hello, I'm <span class="accent">Walle</span>.</h1>
+      <p class="about-lede fade-up" style="--d:.16s">
+        I'm a student. I like sports and video games, I really don't like reading books.
+        My favorite subject is Chemistry. English? Not for me.
+        This is my first website — I built it myself.
+      </p>
+      <div class="about-meta fade-up" style="--d:.24s">
+        <span>EST. 2026</span>
+        <span class="dot">•</span>
+        <span>First try at the web</span>
+        <span class="dot">•</span>
+        <span>Still learning</span>
+      </div>
+    </header>
+
+    <!-- Who I Am -->
+    <section class="about-section" aria-labelledby="who-title">
+      <h2 class="about-section-label" id="who-title">Who I Am</h2>
+
+      <div class="about-grid-2">
+        <article class="about-card fade-up">
+          <h3>A little about me</h3>
+          <p>
+            I'm Walle. I'm a student, and most of my free time goes to
+            <strong>sports</strong> and <strong>video games</strong>. I don't
+            really like reading books — I've tried, it just doesn't hold my
+            attention.
+          </p>
+          <p>
+            At school, <strong>Chemistry</strong> is the one subject I actually
+            enjoy. <strong>English</strong> is the opposite: it never clicked
+            for me.
+          </p>
+          <p>
+            Not long ago I decided to learn how to make a website. This is my
+            first attempt. I built it by hand with HTML and CSS, mostly by
+            trial and error until it looked right.
+          </p>
+        </article>
+
+        <article class="about-card fade-up" style="--d:.08s">
+          <h3>Quick facts</h3>
+          <div class="fact-row">
+            <span class="fact-label">Who</span>
+            <span class="fact-value">A student</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Favorite</span>
+            <span class="fact-value">Sport</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Hate</span>
+            <span class="fact-value">Reading</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Relax by</span>
+            <span class="fact-value">Playing Games</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Subject I like</span>
+            <span class="fact-value">Chemistry</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Subject I don't</span>
+            <span class="fact-value">English</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Things I Like -->
+    <section class="about-section" aria-labelledby="like-title">
+      <h2 class="about-section-label" id="like-title">Things I Like</h2>
+
+      <div class="about-grid-3">
+        <article class="about-card fade-up">
+          <div class="interest-top">
+            <span class="interest-num">01</span>
+            <span class="interest-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="8.6"/>
+                <path d="M3.4 12h17.2"/>
+                <path d="M12 3.4v17.2"/>
+              </svg>
+            </span>
+          </div>
+          <h3>Sports</h3>
+          <p>
+            Whether it's a game with friends or just moving around, sports are
+            how I clear my head. I'd pick a court over a couch any day.
+          </p>
+        </article>
+
+        <article class="about-card fade-up" style="--d:.08s">
+          <div class="interest-top">
+            <span class="interest-num">02</span>
+            <span class="interest-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2.6" y="8.2" width="18.8" height="8.6" rx="4.3"/>
+                <path d="M7.4 11.2v2.6M6.1 12.5h2.6"/>
+                <circle cx="16.1" cy="11.9" r=".95" fill="currentColor" stroke="none"/>
+                <circle cx="17.7" cy="13.5" r=".95" fill="currentColor" stroke="none"/>
+              </svg>
+            </span>
+          </div>
+          <h3>Video Games</h3>
+          <p>
+            My go-to way to relax. I like games I can take my time with — no
+            rush, just play. It's the easiest way for me to switch off.
+          </p>
+        </article>
+
+        <article class="about-card fade-up" style="--d:.16s">
+          <div class="interest-top">
+            <span class="interest-num">03</span>
+            <span class="interest-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9.6 2.8h4.8v6.1l4.2 8.4a1.9 1.9 0 0 1-1.7 2.8H7.1a1.9 1.9 0 0 1-1.7-2.8l4.2-8.4V2.8Z"/>
+                <path d="M7.5 13.6h9"/>
+              </svg>
+            </span>
+          </div>
+          <h3>Chemistry</h3>
+          <p>
+            Equations and reactions feel like puzzles to solve, not lines to
+            memorize. It's the one class I actually look forward to.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Not Really My Thing -->
+    <section class="about-section" aria-labelledby="dislike-title">
+      <h2 class="about-section-label" id="dislike-title">Not Really My Thing</h2>
+
+      <div class="about-grid-2">
+        <article class="about-card fade-up">
+          <h3>Reading</h3>
+          <p>
+            I really don't like it. A few pages in and my mind is already
+            somewhere else — usually outside, or thinking about the next game.
+          </p>
+        </article>
+
+        <article class="about-card fade-up" style="--d:.08s">
+          <h3>English</h3>
+          <p>
+            Not my subject. I'd rather spend that time on a chemistry problem.
+            No offense to English, it's just not for me.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- What I'm Learning -->
+    <section class="about-section" aria-labelledby="now-title">
+      <h2 class="about-section-label" id="now-title">What I'm Learning</h2>
+
+      <article class="about-card fade-up">
+        <h3>WS-01: my first website</h3>
+        <p>
+          This whole site is my first project. No template, no framework —
+          just <strong>HTML</strong> and <strong>CSS</strong>, written by hand
+          and fixed piece by piece until it worked.
+        </p>
+        <p>
+          It's not perfect, but it's mine, and it's only the start. I'm going to
+          keep learning and slowly make it better.
+        </p>
+
+        <div class="tags">
+          <span class="tag-pill">HTML</span>
+          <span class="tag-pill">CSS</span>
+          <span class="tag-pill">A little JavaScript</span>
+          <span class="tag-pill">First attempt</span>
+        </div>
+      </article>
+    </section>
+
+    <footer class="about-footer">
+      <p class="about-footer-text">Thanks for reading. Want to say hi?</p>
+
+      <div class="about-footer-links">
+        <a class="icon-btn" href="mailto:hello@walle.dev" aria-label="Email me">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+            <path d="M8 1.4L13.8 4.7V11.3L8 14.6L2.2 11.3V4.7L8 1.4Z"/>
+            <circle cx="8" cy="8" r="1.35" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+
+        <a class="icon-btn" href="https://github.com/Chen93786" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true">
+            <path d="M2 5.2V2h3.2"/>
+            <path d="M14 5.2V2h-3.2"/>
+            <path d="M2 10.8V14h3.2"/>
+            <path d="M14 10.8V14h-3.2"/>
+            <rect x="5.2" y="5.2" width="5.6" height="5.6"/>
+          </svg>
+        </a>
+
+        <a class="back-link" href="#home" data-back-home>Back home</a>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+
+<!-- ==================== 主页面原有脚本（原样保留） ==================== -->
 <script>
 (function () {
   'use strict';
@@ -489,6 +984,85 @@ h1,h2,h3,.heading-font{font-family:'Orbitron-Medium','Arial Narrow',sans-serif;f
   }else{
     revealAllFallback();
   }
+})();
+</script>
+
+<!-- ==================== 主页面 / About 页面 切换脚本 ==================== -->
+<script>
+(function () {
+  'use strict';
+
+  var homeView  = document.getElementById('homeView');
+  var aboutView = document.getElementById('aboutView');
+  if (!homeView || !aboutView) return;
+
+  var aboutFadeEls = aboutView.querySelectorAll('.fade-up');
+
+  function animateAboutIn() {
+    Array.prototype.forEach.call(aboutFadeEls, function (el) {
+      el.classList.remove('is-visible');
+    });
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        Array.prototype.forEach.call(aboutFadeEls, function (el) {
+          el.classList.add('is-visible');
+        });
+      });
+    });
+  }
+
+  function showHome() {
+    aboutView.hidden = true;
+    homeView.hidden = false;
+    document.title = 'Walle // Hello';
+    window.scrollTo(0, 0);
+  }
+
+  function showAbout() {
+    homeView.hidden = true;
+    aboutView.hidden = false;
+    document.title = 'Walle // About Me';
+    window.scrollTo(0, 0);
+    animateAboutIn();
+  }
+
+  function route() {
+    if (location.hash === '#about') {
+      showAbout();
+    } else {
+      showHome();
+    }
+  }
+
+  var aboutBtn = document.querySelector('.about-fab');
+  if (aboutBtn) {
+    aboutBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (location.hash === '#about') {
+        route();
+      } else {
+        location.hash = '#about';
+      }
+    });
+  }
+
+  Array.prototype.forEach.call(
+    aboutView.querySelectorAll('[data-back-home]'),
+    function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (location.hash === '#home' || location.hash === '') {
+          route();
+        } else {
+          location.hash = '#home';
+        }
+      });
+    }
+  );
+
+  window.addEventListener('hashchange', route);
+
+  route();
 })();
 </script>
 </body>
