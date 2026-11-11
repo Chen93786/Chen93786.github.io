@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="theme-color" content="#C45A18" />
+<meta name="theme-color" content="#0B0705" />
 <meta name="description" content="About Walle — 6th grader, sports fan, chemistry lover, first-time web developer." />
 <title>About Me // Walle</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23C45A18'/><text x='16' y='23' font-family='Arial,sans-serif' font-size='17' font-weight='700' fill='%23FBDBAF' text-anchor='middle'>W</text></svg>" />
@@ -20,43 +20,39 @@
   --label:rgba(251,219,175,0.88);
   --value:#FFF6E8;
   --rule:rgba(251,219,175,0.16);
-  --card:rgba(10,8,7,0.58);
+  --card:rgba(20,12,8,0.72);
+  --accent:#FF6B3D;
 }
 *,*::before,*::after{box-sizing:border-box;}
-html,body{margin:0;padding:0;background:#C45A18;color:var(--cream);overflow-x:hidden;}
+html,body{margin:0;padding:0;background:#0B0705;color:var(--cream);overflow-x:hidden;}
 body{font-family:'Inter',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
 h1,h2,h3,.heading-font{font-family:'Orbitron-Medium','Arial Narrow',sans-serif;font-weight:400;letter-spacing:0.02em;}
 
-/* ---------- 页面外壳 ---------- */
 .about{
   position:relative;
   width:100%;
   min-height:100vh;
   min-height:100dvh;
   overflow:hidden;
-  background:#C45A18;
-}
-
-.about-bg{
-  position:absolute;
-  inset:0;
-  background-size:cover;
-  background-position:center center;
-  background-repeat:no-repeat;
-  z-index:1;
-}
-
-.about-veil{
-  position:absolute;
-  inset:0;
-  z-index:2;
   background:
-    linear-gradient(180deg, rgba(10,8,7,0.80) 0%, rgba(10,8,7,0.90) 100%),
-    radial-gradient(ellipse 55% 45% at 80% 22%, rgba(255,50,25,0.22), transparent 70%),
-    radial-gradient(ellipse 60% 50% at 20% 90%, rgba(255,90,40,0.14), transparent 72%);
+    radial-gradient(ellipse 70% 60% at 75% 15%, rgba(255,60,30,0.18), transparent 65%),
+    radial-gradient(ellipse 60% 55% at 15% 85%, rgba(255,90,40,0.10), transparent 70%),
+    linear-gradient(160deg, #140C08 0%, #0B0705 55%, #080504 100%);
 }
 
-/* ---------- 内容层 ---------- */
+.about-grid{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background-image:
+    linear-gradient(rgba(251,219,175,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(251,219,175,0.05) 1px, transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 40%, #000 20%, transparent 80%);
+  mask-image:radial-gradient(ellipse 70% 70% at 50% 40%, #000 20%, transparent 80%);
+}
+
 .about-ui{
   position:relative;
   z-index:3;
@@ -68,27 +64,12 @@ h1,h2,h3,.heading-font{font-family:'Orbitron-Medium','Arial Narrow',sans-serif;f
   gap:36px;
 }
 
-/* ---------- 顶部栏：左上角 Back + About Me ---------- */
+/* ---------- 顶部 ---------- */
 .about-top{
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:16px;
-}
-
-.about-top-left{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  min-width:0;
-}
-
-.about-top-right{
-  font-family:'Orbitron-Medium','Arial Narrow',sans-serif;
-  font-size:11.5px;
-  letter-spacing:0.16em;
-  text-transform:uppercase;
-  color:rgba(251,219,175,0.5);
 }
 
 .back-btn{
@@ -98,33 +79,31 @@ h1,h2,h3,.heading-font{font-family:'Orbitron-Medium','Arial Narrow',sans-serif;f
   padding:9px 18px;
   border-radius:999px;
   border:1px solid rgba(251,219,175,0.45);
-  background:rgba(10,8,7,0.35);
+  background:rgba(251,219,175,0.06);
   -webkit-backdrop-filter:blur(10px);
   backdrop-filter:blur(10px);
   color:var(--cream);
   font-family:inherit;
   font-size:12.5px;
   font-weight:500;
-  letter-spacing:0.02em;
   text-decoration:none;
   cursor:pointer;
-  transition:background 0.2s ease,border-color 0.2s ease,transform 0.2s ease;
   flex:0 0 auto;
+  transition:background 0.2s ease,border-color 0.2s ease,transform 0.2s ease;
 }
 .back-btn:hover{
-  background:rgba(251,219,175,0.12);
+  background:rgba(251,219,175,0.14);
   border-color:var(--cream);
   transform:translateX(-2px);
 }
 .back-btn:focus-visible{outline:2px solid var(--cream);outline-offset:3px;}
 
-.about-tag{
+.about-top-right{
   font-family:'Orbitron-Medium','Arial Narrow',sans-serif;
   font-size:11.5px;
-  letter-spacing:0.18em;
+  letter-spacing:0.16em;
   text-transform:uppercase;
-  color:rgba(251,219,175,0.72);
-  white-space:nowrap;
+  color:rgba(251,219,175,0.45);
 }
 
 /* ---------- 主内容 ---------- */
@@ -138,13 +117,26 @@ h1,h2,h3,.heading-font{font-family:'Orbitron-Medium','Arial Narrow',sans-serif;f
 
 .about-left{max-width:640px;}
 
+.about-kicker{
+  display:inline-block;
+  margin-bottom:18px;
+  padding:5px 12px;
+  border-radius:999px;
+  border:1px solid rgba(251,219,175,0.28);
+  font-family:'Orbitron-Medium','Arial Narrow',sans-serif;
+  font-size:10px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:rgba(251,219,175,0.65);
+}
+
 .about-left h1{
   margin:0;
   font-size:clamp(2rem,4.6vw,4.2rem);
   line-height:1.04;
   text-transform:none;
   color:var(--cream);
-  text-shadow:0 2px 28px rgba(0,0,0,0.35);
+  text-shadow:0 2px 40px rgba(255,90,45,0.22);
 }
 .about-left h1 .pull-line{display:block;}
 
@@ -152,41 +144,106 @@ h1,h2,h3,.heading-font{font-family:'Orbitron-Medium','Arial Narrow',sans-serif;f
   margin:22px 0 0;
   max-width:540px;
   font-size:15.5px;
-  line-height:1.7;
+  line-height:1.75;
   color:var(--muted);
 }
 
+.about-left p strong{
+  color:var(--cream);
+  font-weight:500;
+}
+
+/* 小标题 */
+.about-subhead{
+  margin:36px 0 0;
+  font-family:'Orbitron-Medium','Arial Narrow',sans-serif;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:rgba(251,219,175,0.6);
+}
+
+/* 三段兴趣列表 */
+.likes{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  margin-top:14px;
+  max-width:560px;
+}
+
+.like-item{
+  display:flex;
+  gap:16px;
+  padding:16px 0;
+  border-top:1px solid var(--rule);
+}
+.like-item:first-child{border-top:none;padding-top:0;}
+
+.like-icon{
+  flex:0 0 36px;
+  width:36px;height:36px;
+  display:grid;place-items:center;
+  border-radius:10px;
+  border:1px solid rgba(251,219,175,0.24);
+  color:var(--cream);
+}
+.like-icon svg{width:16px;height:16px;display:block;}
+
+.like-body{min-width:0;}
+
+.like-title{
+  margin:0;
+  font-family:'Orbitron-Medium','Arial Narrow',sans-serif;
+  font-size:12px;
+  letter-spacing:0.04em;
+  color:var(--value);
+}
+
+.like-text{
+  margin:5px 0 0;
+  font-size:13.5px;
+  line-height:1.6;
+  color:var(--muted);
+}
+
+/* 标签 */
 .about-tags{
   display:flex;
   flex-wrap:wrap;
   gap:8px;
-  margin-top:26px;
+  margin-top:30px;
 }
 .about-tags span{
   display:inline-block;
   padding:6px 13px;
   border-radius:999px;
-  border:1px solid rgba(251,219,175,0.32);
+  border:1px solid rgba(251,219,175,0.28);
+  background:rgba(251,219,175,0.05);
   font-size:11.5px;
   letter-spacing:0.06em;
   color:var(--label);
 }
 
-/* ---------- 右侧 Quick Facts ---------- */
+/* ---------- 右侧 ---------- */
 .about-side{
   width:100%;
   max-width:400px;
   justify-self:end;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
 }
 
 .about-card-big{
   padding:22px 22px 10px;
   border-radius:20px;
-  background:rgba(10,8,7,0.62);
+  background:var(--card);
   -webkit-backdrop-filter:blur(20px);
   backdrop-filter:blur(20px);
-  border:1px solid rgba(251,219,175,0.16);
-  box-shadow:0 22px 60px rgba(0,0,0,0.38);
+  border:1px solid rgba(251,219,175,0.18);
+  box-shadow:0 24px 70px rgba(0,0,0,0.55), 0 0 60px rgba(255,70,35,0.06);
 }
 
 .about-card-big h2{
@@ -228,6 +285,28 @@ h1,h2,h3,.heading-font{font-family:'Orbitron-Medium','Arial Narrow',sans-serif;f
   white-space:nowrap;
 }
 
+/* 目标小卡 */
+.about-goal{
+  padding:20px 22px;
+  border-radius:18px;
+  background:linear-gradient(150deg, rgba(255,70,35,0.14), rgba(20,12,8,0.6));
+  border:1px solid rgba(255,110,70,0.28);
+}
+.about-goal h2{
+  margin:0 0 10px;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--accent);
+}
+.about-goal p{
+  margin:0;
+  font-size:13px;
+  line-height:1.65;
+  color:var(--muted);
+}
+
 /* ---------- 底部 ---------- */
 .about-bottom{
   display:flex;
@@ -237,7 +316,7 @@ h1,h2,h3,.heading-font{font-family:'Orbitron-Medium','Arial Narrow',sans-serif;f
   font-family:'Orbitron-Medium','Arial Narrow',sans-serif;
   font-size:14px;
   letter-spacing:0.1em;
-  color:rgba(251,219,175,0.6);
+  color:rgba(251,219,175,0.5);
 }
 
 /* ---------- 动画 ---------- */
@@ -262,7 +341,7 @@ h1,h2,h3,.heading-font{font-family:'Orbitron-Medium','Arial Narrow',sans-serif;f
 }
 @media (max-width:900px){
   .about-ui{padding:28px 22px 30px;gap:26px;}
-  .about-content{grid-template-columns:1fr;gap:32px;}
+  .about-content{grid-template-columns:1fr;gap:34px;}
   .about-left h1{font-size:clamp(1.8rem,8vw,3rem);}
   .about-left p{font-size:14.5px;}
   .about-side{max-width:100%;justify-self:stretch;}
@@ -283,17 +362,19 @@ h1,h2,h3,.heading-font{font-family:'Orbitron-Medium','Arial Narrow',sans-serif;f
 }
 @media (max-width:480px){
   .about-ui{gap:20px;}
-  .about-top-left{gap:10px;}
   .about-top-right{display:none;}
   .about-left h1{font-size:clamp(1.5rem,10vw,2.2rem);}
   .about-left p{font-size:13.5px;margin-top:16px;}
-  .about-tags{margin-top:20px;gap:6px;}
+  .about-tags{margin-top:22px;gap:6px;}
   .about-tags span{font-size:10.5px;padding:5px 10px;}
   .about-row dt{font-size:10.5px;}
   .about-row dd{font-size:12px;}
   .about-bottom{font-size:12px;}
   .back-btn{font-size:11.5px;padding:8px 14px;}
-  .about-tag{font-size:10px;}
+  .like-item{gap:12px;padding:14px 0;}
+  .like-icon{flex:0 0 32px;width:32px;height:32px;}
+  .like-title{font-size:11px;}
+  .like-text{font-size:12.5px;}
 }
 </style>
 </head>
@@ -301,35 +382,85 @@ h1,h2,h3,.heading-font{font-family:'Orbitron-Medium','Arial Narrow',sans-serif;f
 <body>
 <main class="about">
 
-  <div class="about-bg"
-       style="background-image:url('https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260831_115955_2a9adb39-5e9b-4ced-96e2-6900eabe3de9.png&w=1920&q=85');"></div>
-  <div class="about-veil" aria-hidden="true"></div>
+  <div class="about-grid" aria-hidden="true"></div>
 
   <div class="about-ui">
 
-    <!-- 左上角：Back + About Me -->
     <header class="about-top">
-      <div class="about-top-left">
-        <a href="index.html" class="back-btn">← Back</a>
-        <span class="about-tag">About Me</span>
-      </div>
+      <a href="index.html" class="back-btn">← Back</a>
       <span class="about-top-right">WALLE // v1.0</span>
     </header>
 
     <section class="about-content">
 
+      <!-- 左：介绍 -->
       <div class="about-left">
+        <span class="about-kicker fade-up-reveal" data-delay="0.1">About Me</span>
+
         <h1 class="words-pull-up"><span>I'm</span><span>Walle.</span></h1>
 
         <p class="fade-up-reveal" data-delay="0.4">
-          I'm 12 years old and in 6th grade. I like playing sports and video games, and my favorite subject is Chemistry. I really don't like reading books or English class.
+          I'm <strong>12 years old</strong> and in <strong>6th grade</strong>. I'm a student who likes moving around more than sitting still — sports, video games, and anything hands-on. My favorite subject is <strong>Chemistry</strong>, because I like finding out how things actually work.
         </p>
 
         <p class="fade-up-reveal" data-delay="0.55">
-          I'm just starting to learn how to make websites — this is my first try. I built this page myself with HTML and CSS. There's still a lot to learn, but I'm having fun doing it.
+          I really don't like reading books, and English class isn't my thing either. I'd rather be outside, or in front of a screen playing something with friends. But I do like making things, which is how I ended up here.
         </p>
 
-        <div class="about-tags fade-up-reveal" data-delay="0.7">
+        <h2 class="about-subhead fade-up-reveal" data-delay="0.65">Things I Like</h2>
+
+        <div class="likes">
+          <div class="like-item fade-up-reveal" data-delay="0.75">
+            <span class="like-icon" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2">
+                <circle cx="8" cy="8" r="6"/>
+                <path d="M8 1.4v13.2M1.4 8h13.2"/>
+              </svg>
+            </span>
+            <div class="like-body">
+              <h3 class="like-title">Sports</h3>
+              <p class="like-text">I like playing sports — running around, competing, and getting better at something. It's way more fun than sitting in class.</p>
+            </div>
+          </div>
+
+          <div class="like-item fade-up-reveal" data-delay="0.85">
+            <span class="like-icon" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round">
+                <rect x="1.6" y="5.2" width="12.8" height="7.2" rx="2.4"/>
+                <path d="M5 3.2h6"/>
+                <circle cx="5.2" cy="8.8" r="1"/>
+                <circle cx="9" cy="9.8" r="1"/>
+              </svg>
+            </span>
+            <div class="like-body">
+              <h3 class="like-title">Video Games</h3>
+              <p class="like-text">That's how I relax. I like games that need thinking and quick reactions — and playing with friends is the best part.</p>
+            </div>
+          </div>
+
+          <div class="like-item fade-up-reveal" data-delay="0.95">
+            <span class="like-icon" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+                <path d="M6.4 1.8h3.2"/>
+                <path d="M8 1.8v3.4"/>
+                <path d="M8 5.2L4.2 11.4a2.4 2.4 0 0 0 2 3.6h3.6a2.4 2.4 0 0 0 2-3.6L8 5.2Z"/>
+                <path d="M6 9.6h4"/>
+              </svg>
+            </span>
+            <div class="like-body">
+              <h3 class="like-title">Chemistry</h3>
+              <p class="like-text">My favorite subject. Reactions, elements, experiments — I like that there's always a real answer to find.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="about-subhead fade-up-reveal" data-delay="1.0">This Website</h2>
+
+        <p class="fade-up-reveal" data-delay="1.1">
+          I'm just starting to learn how to make websites, and this is my <strong>first try</strong>. I built this page myself with HTML and CSS — no templates. There's still a lot I don't know, but I'm having fun figuring it out one piece at a time.
+        </p>
+
+        <div class="about-tags fade-up-reveal" data-delay="1.2">
           <span>#sports</span>
           <span>#videogames</span>
           <span>#chemistry</span>
@@ -337,8 +468,10 @@ h1,h2,h3,.heading-font{font-family:'Orbitron-Medium','Arial Narrow',sans-serif;f
         </div>
       </div>
 
+      <!-- 右：速览 + 目标 -->
       <aside class="about-side">
-        <div class="about-card-big fade-up-reveal" data-delay="0.6">
+
+        <div class="about-card-big fade-up-reveal" data-delay="0.5">
           <h2>Quick Facts</h2>
           <dl class="about-list">
             <div class="about-row"><dt>Name</dt><dd>Walle</dd></div>
@@ -351,6 +484,12 @@ h1,h2,h3,.heading-font{font-family:'Orbitron-Medium','Arial Narrow',sans-serif;f
             <div class="about-row"><dt>Website</dt><dd>First try</dd></div>
           </dl>
         </div>
+
+        <div class="about-goal fade-up-reveal" data-delay="0.85">
+          <h2>Next Goal</h2>
+          <p>Learn JavaScript, add a second page, and make the whole site work on my phone without anything breaking.</p>
+        </div>
+
       </aside>
 
     </section>
